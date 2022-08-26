@@ -7,22 +7,14 @@ import xyz.paradoxclient.feature.Filter
 
 class Sprint : Feature("Sprint", "Keep sprinting", Filter.MOVEMENT) {
 
-    init {
-        toggle()
-    }
-
     @Handler
     fun update(event: EventUpdate) {
-        player.isSprinting = true
-    }
-
-    override fun onEnable() {
-        super.onEnable()
-        logger.info("Sprint enabled")
+        gameSettings.keyBindSprint.pressed = true
     }
 
     override fun onDisable() {
         super.onDisable()
-        logger.info("Sprint disabled")
+        gameSettings.keyBindSprint.pressed = false
+        player.isSprinting = false
     }
 }

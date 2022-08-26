@@ -2,6 +2,7 @@ package xyz.paradoxclient.interfaces
 
 import net.minecraft.client.Minecraft
 import net.minecraft.client.entity.EntityPlayerSP
+import net.minecraft.client.settings.GameSettings
 import net.minecraft.world.World
 
 interface IMinecraft {
@@ -14,4 +15,7 @@ interface IMinecraft {
 
     val world: World
         get() = mc.theWorld
+
+    val gameSettings: GameSettings
+        get() = mc.gameSettings
 }
