@@ -12,7 +12,7 @@ class FeatureManager : Manager() {
     val features = ArrayList<Feature>()
 
     override fun run() {
-        val reflections = Reflections("xyz.paradox.feature.impl", SubTypesScanner(false))
+        val reflections = Reflections("xyz.paradoxclient.feature.impl", SubTypesScanner(false))
         reflections.getSubTypesOf(Feature::class.java).stream().collect(Collectors.toSet()).forEach(Consumer { feature: Class<out Feature> -> features.add(feature.newInstance()) })
     }
 }

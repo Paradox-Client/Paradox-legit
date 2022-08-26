@@ -1,9 +1,9 @@
 package xyz.paradoxclient.event
 
 import xyz.paradoxclient.Paradox
-import xyz.paradoxclient.logger.ILogger
+import xyz.paradoxclient.interfaces.ILogger
 
-open class Event : ILogger() {
+open class Event : ILogger {
 
     var cancelled: Boolean = false
 
@@ -15,7 +15,7 @@ open class Event : ILogger() {
         }
     }
 
-    companion object : ILogger() {
+    companion object : ILogger {
         fun post(event: Event) {
             try {
                 Paradox.INSTANCE.pubSub.post(event).dispatch()

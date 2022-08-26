@@ -7,9 +7,10 @@ import rip.hippo.lwjeb.configuration.BusConfigurations
 import rip.hippo.lwjeb.configuration.config.impl.BusPubSubConfiguration
 import rip.hippo.lwjeb.message.scan.impl.MethodAndFieldBasedMessageScanner
 import xyz.paradoxclient.event.Event
+import xyz.paradoxclient.interfaces.ILogger
 import xyz.paradoxclient.manager.ManagerManager
 
-enum class Paradox {
+enum class Paradox : ILogger {
 
     INSTANCE;
 
@@ -19,7 +20,6 @@ enum class Paradox {
 
     val manager = ManagerManager()
 
-    val logger: Logger = Logger.getLogger(Paradox::class.java.name)
     val pubSub = PubSub<Event>(BusConfigurations.Builder().setConfiguration(BusPubSubConfiguration::class.java) {
         val busPubSubConfiguration = BusPubSubConfiguration.getDefault()
         busPubSubConfiguration.setScanner(MethodAndFieldBasedMessageScanner<Any>())

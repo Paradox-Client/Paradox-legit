@@ -1,6 +1,10 @@
 package xyz.paradoxclient.feature
 
-open class Feature(val name: String, val description: String) {
+import xyz.paradoxclient.Paradox
+import xyz.paradoxclient.interfaces.ILogger
+import xyz.paradoxclient.interfaces.IMinecraft
+
+open class Feature(val name: String, val description: String, val filter: Filter) : IMinecraft, ILogger {
 
     var enabled = false
 
@@ -12,9 +16,13 @@ open class Feature(val name: String, val description: String) {
             onDisable()
     }
 
-    open fun onEnable() {}
+    open fun onEnable() {
+        Paradox.INSTANCE.pubSub.subscribe(this)
+    }
 
-    open fun onDisable() {}
+    open fun onDisable() {
+        Paradox.INSTANCE.pubSub.unsubscribe(this)
+    }
 
     override fun toString(): String {
         return name

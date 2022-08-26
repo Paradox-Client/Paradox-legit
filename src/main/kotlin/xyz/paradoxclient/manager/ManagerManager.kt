@@ -10,8 +10,8 @@ class ManagerManager {
     private val managers = ArrayList<Manager>()
 
     init {
-        val reflections = Reflections("xyz.paradox.manager.impl", SubTypesScanner(false))
-        reflections.getSubTypesOf(Manager::class.java).stream().collect(Collectors.toSet()).forEach(Consumer { manager: Class<out Manager> -> managers.add(manager.newInstance()) })
+        val reflections = Reflections("xyz.paradoxclient.manager.impl", SubTypesScanner(false))
+        reflections.getSubTypesOf(Manager::class.java).stream().collect(Collectors.toSet()).forEach(Consumer { manager: Class<out Manager> -> managers.add(manager.newInstance()); println("ROFL") })
     }
 
     fun run() {
