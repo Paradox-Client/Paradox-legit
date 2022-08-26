@@ -1,3 +1,7 @@
 /.classpath
 /.project
 /Client.iml
+/bin/
+/.settings/
+/.metadata/
+/.idea/
