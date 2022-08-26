@@ -1,6 +1,6 @@
 package xyz.paradoxclient.macro
 
-class Macro {
+abstract class Macro(val key: Int) : Runnable {
 
-    // TODO add macro functionality
+    abstract override fun run()
 }

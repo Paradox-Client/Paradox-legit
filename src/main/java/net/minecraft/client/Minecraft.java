@@ -181,6 +181,8 @@ import org.lwjgl.opengl.OpenGLException;
 import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
 import xyz.paradoxclient.Paradox;
+import xyz.paradoxclient.event.Event;
+import xyz.paradoxclient.event.impl.EventKey;
 
 public class Minecraft implements IThreadListener, IPlayerUsage
 {
@@ -1763,6 +1765,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                         this.entityRenderer.switchUseShader();
                     }
 
+                    Event.Companion.post(new EventKey(k));
                     if (this.currentScreen != null)
                     {
                         this.currentScreen.handleKeyboardInput();
