@@ -116,7 +116,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
         {
             super.onUpdate();
 
-            Event.Companion.post(new EventUpdate());
+            new EventUpdate().post();
 
             if (this.isRiding())
             {

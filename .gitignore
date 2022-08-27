@@ -7,3 +7,8 @@
 /.idea/
 /lib/
 /workspace/
+!workspace/
+workspace/*
+!workspace/natives
+!workspace/discord-rpc.dll
+workspace/assets/*

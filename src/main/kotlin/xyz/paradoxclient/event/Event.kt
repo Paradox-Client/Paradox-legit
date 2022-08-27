@@ -14,14 +14,4 @@ open class Event : ILogger {
             logger.error("Error posting event", exception)
         }
     }
-
-    companion object : ILogger {
-        fun post(event: Event) {
-            try {
-                Paradox.INSTANCE.pubSub.post(event).dispatch()
-            } catch (exception: Exception) {
-                logger.error("Error posting event", exception)
-            }
-        }
-    }
 }
