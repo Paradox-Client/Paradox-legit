@@ -1765,7 +1765,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                         this.entityRenderer.switchUseShader();
                     }
 
-                    Event.Companion.post(new EventKey(k));
+                    new EventKey(k).post();
                     if (this.currentScreen != null)
                     {
                         this.currentScreen.handleKeyboardInput();

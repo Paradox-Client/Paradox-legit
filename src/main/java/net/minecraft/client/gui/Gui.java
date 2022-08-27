@@ -38,18 +38,18 @@ public class Gui
         drawRect(x, startY + 1, x + 1, endY, color);
     }
 
-    public static void drawRect(int left, int top, int right, int bottom, int color)
+    public static void drawRect(double left, double top, double right, double bottom, int color)
     {
         if (left < right)
         {
-            int i = left;
+            double i = left;
             left = right;
             right = i;
         }
 
         if (top < bottom)
         {
-            int j = top;
+            double j = top;
             top = bottom;
             bottom = j;
         }
